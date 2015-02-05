@@ -107,7 +107,11 @@ class WPN_Posts_Widget extends WP_Widget {
 		parent::__construct(
 			'wpn_posts_widget', // Base ID
 			'Network Posts',  // Name
+<<<<<<< HEAD
 			array( 'description' => __( 'Network Posts', 'wpn-posts' ), ) // Args
+=======
+			array( 'description' => __( 'Network Posts', 'trans-nlp' ), ) // Args
+>>>>>>> master
 		);
 
 		// Get blog ids
@@ -298,7 +302,11 @@ class WPN_Posts_Widget extends WP_Widget {
 	 */
 	public function field_header( $args ) {
 		?>
+<<<<<<< HEAD
 		<h3><?php printf( __( '%1$s', 'wpn-posts' ), $args['name'] ); ?></h3>
+=======
+		<h3><?php printf( __( '%1$s', 'trans-nlp' ), $args['name'] ); ?></h3>
+>>>>>>> master
 		<hr />
 		<?php
 	}
@@ -318,7 +326,11 @@ class WPN_Posts_Widget extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo $id; ?>">
+<<<<<<< HEAD
 				<?php printf( __( '%1$s', 'wpn-posts' ), $args['name'] ); ?>
+=======
+				<?php printf( __( '%1$s', 'trans-nlp' ), $args['name'] ); ?>
+>>>>>>> master
 			</label>
 			<br/>
 			<input type='text'
@@ -343,7 +355,11 @@ class WPN_Posts_Widget extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo $id; ?>">
+<<<<<<< HEAD
 				<?php printf( __( '%1$s', 'wpn-posts' ), $args['name'] ); ?>
+=======
+				<?php printf( __( '%1$s', 'trans-nlp' ), $args['name'] ); ?>
+>>>>>>> master
 			</label>
 			<br/>
 		<?php if ( $single !== true ) : ?>
@@ -379,8 +395,13 @@ class WPN_Posts_Widget extends WP_Widget {
 				$selected = false;
 			}
 			?>
+<<<<<<< HEAD
 			<option <?php echo $selected; ?> value="<?php printf( __( '%1$s', 'wpn-posts' ), $option['value'] ); ?>">
 				<?php printf( __( '%1$s', 'wpn-posts' ), $option['name'] ); ?>
+=======
+			<option <?php echo $selected; ?> value="<?php printf( __( '%1$s', 'trans-nlp' ), $option['value'] ); ?>">
+				<?php printf( __( '%1$s', 'trans-nlp' ), $option['name'] ); ?>
+>>>>>>> master
 			</option>
 		<?php }
 
@@ -405,8 +426,13 @@ class WPN_Posts_Widget extends WP_Widget {
 				$selected = false;
 			}
 			?>
+<<<<<<< HEAD
 			<option <?php echo $selected; ?> value="<?php printf( __( '%1$s', 'wpn-posts' ), $option['value'] ); ?>">
 				<?php printf( __( '%1$s', 'wpn-posts' ), $option['name'] ); ?>
+=======
+			<option <?php echo $selected; ?> value="<?php printf( __( '%1$s', 'trans-nlp' ), $option['value'] ); ?>">
+				<?php printf( __( '%1$s', 'trans-nlp' ), $option['name'] ); ?>
+>>>>>>> master
 			</option>
 		<?php }
 

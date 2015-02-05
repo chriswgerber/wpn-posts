@@ -3,6 +3,8 @@
  * Class WPN_Posts_Settings
  *
  * Creates the settings for this widget
+ *
+ * TODO: Recreate $fields arrays as objects.
  */
 
 class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
@@ -25,7 +27,6 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 			'type'    => 'select',
 			'id'      => 'display_type',
 			'label'   => 'Display Type',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name'  => 'Blocks',
@@ -39,59 +40,58 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name'  => 'Ordered List',
 					'value' => 'olist'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'header',
 			'id'    => 'blogs_header',
-			'label' => 'Posts',
-			'validate' => '',
+			'label' => 'Posts'
 		),
 		array(
 			'type'    => 'select_multiple',
 			'id'      => 'blog_id',
 			'label'   => 'Blog(s) to Display',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name'    => 'Blog List',
 					'default' => 'Display All'
 				)
-			)
+			),
+			'validate' => 'exists_in_multi_select'
 		),
 		array(
 			'type'    => 'select_multiple',
 			'id'      => 'ignore_blog',
 			'label'   => 'Blog(s) to Ignore',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name'    => 'Blog List',
 					'default' => 'Nothing to Ignore'
 				)
-			)
+			),
+			'validate' => 'exists_in_multi_select'
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'sort_by_blog',
 			'label'  => 'Sort by Blog ID',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' => 'No',
-					'value' => 'false'
+					'value' => 0
 				),
 				array(
 					'name' =>  'Yes',
-					'value' => 'true'
+					'value' => 1
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'sorting_order',
 			'label'  => 'Sorting Order',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' =>  'Newest to Oldest',
@@ -109,49 +109,49 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' => 'Descending',
 					'value' => 'desc'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'custom_post_type',
 			'label'  => 'Custom Post Types',
-			'validate' => '',
+			'validate' => 'strip_tags',
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'category',
 			'label'  => 'Category(ies)',
-			'validate' => ''
+			'validate' => 'strip_tags'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'tag',
 			'label'  => 'Tag(s)',
-			'validate' => ''
+			'validate' => 'strip_tags'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'post_limit',
 			'label'  => 'Total Number of Posts',
-			'validate' => ''
+			'validate' => 'int'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'posts_per_blog',
 			'label' => 'Max Posts for each blog',
-			'validate' => ''
+			'validate' => 'int'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'time_frame',
 			'label' => 'Time Frame (in Days)',
-			'validate' => ''
+			'validate' => 'int'
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'honor_sticky',
 			'label'  => 'Honor Sticky Posts',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' => 'No',
@@ -161,7 +161,8 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' =>  'Yes',
 					'value' => 'true'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type' => 'header',
@@ -172,7 +173,6 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 			'type' => 'select',
 			'id'    => 'thumbnail',
 			'label'  => 'Display Thumbnails',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' =>  'Show',
@@ -182,25 +182,25 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' => 'Hide',
 					'value' => 'false'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'thumbnail_w',
 			'label'  => 'Thumbnail Width',
-			'validate' => ''
+			'validate' => 'int'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'thumbnail_h',
 			'label'  => 'Thumbnail Height',
-			'validate' => ''
+			'validate' => 'int'
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'thumbnail_filler',
 			'label'  => 'Thumbnail Replacement',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' =>  'Placeholder',
@@ -218,19 +218,19 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' => 'Custom',
 					'value' => 'custom'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'thumbnail_url',
 			'label'  => 'Custom Thumbnail URL',
-			'validate' => ''
+			'validate' => 'strip_tags'
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'thumbnail_custom',
 			'label'  => 'Custom Thumbnail',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' => 'No',
@@ -240,13 +240,14 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' =>  'Yes',
 					'value' => 'true'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'thumbnail_field',
 			'label'  => 'Thumbnail Custom Field',
-			'validate' => '',
+			'validate' => 'strip_tags',
 		),
 		array(
 			'type' => 'header',
@@ -257,7 +258,6 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 			'type' => 'select',
 			'id'    => 'paginate',
 			'label'  => 'Paginate',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' => 'No',
@@ -267,19 +267,19 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' =>  'Yes',
 					'value' => 'true'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'posts_per_page',
 			'label'  => 'Posts per Page',
-			'validate' => '',
+			'validate' => 'int',
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'full_meta',
 			'label'  => 'Full Metadata',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' =>  'No',
@@ -289,13 +289,13 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' => 'Yes',
 					'value' => 'true'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'display_content',
 			'label'  => 'Display Content',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' => 'No',
@@ -305,19 +305,19 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' =>  'Yes',
 					'value' => 'true'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'content_length',
 			'label'  => 'Content Length',
-			'validate' => '',
+			'validate' => 'int',
 		),
 		array(
 			'type' => 'select',
 			'id'    => 'auto_excerpt',
 			'label'  => 'Auto-Excerpt',
-			'validate' => '',
 			'options' => array(
 				array(
 					'name' =>  'Yes',
@@ -327,7 +327,8 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'name' => 'No',
 					'value' => 'false'
 				)
-			)
+			),
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type' => 'select',
@@ -343,7 +344,7 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'value' => 'text'
 				)
 			),
-			'validate' => ''
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type' => 'select',
@@ -359,7 +360,7 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 					'value' => 'false'
 				)
 			),
-			'validate' => ''
+			'validate' => 'exists_in_select'
 		),
 		array(
 			'type' => 'header',
@@ -370,13 +371,13 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 			'type'  => 'text_line',
 			'id'    => 'css_style',
 			'label'  => 'Custom CSS Filename',
-			'validate' => ''
+			'validate' => 'strip_tags'
 		),
 		array(
 			'type'  => 'text_line',
 			'id'    => 'wrapper__css',
 			'label'  => 'Custom CSS Class for the content wrapper',
-			'validate' => ''
+			'validate' => 'strip_tags'
 		),
 		array(
 			'type' => 'header',
@@ -387,12 +388,20 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 			'type'  => 'text_area',
 			'id'    => 'custom_query',
 			'label'  => 'Custom Query String for Data',
-			'validate' => 'sql_escape'
+			'validate' => 'query_string'
 		)
 	);
 
+	/**
+	 * Render_Form
+	 *
+	 * @param array|null $fields
+	 *
+	 * @return mixed Displays field or returns errors or false or any number of things.
+	 */
 	public function render_form( $fields = null ) {
 
+		// Sets fields if they don't exist
 		$fields = ( $fields === null ? $this->fields : $fields );
 
 		foreach ( $fields as $field ) {
@@ -432,7 +441,7 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 			if ( $field['validate'] !== null && method_exists($this, $cb) ) {
 
 				$id = $field['id'];
-				$new_values[$id] = $this->{$field['validate']}( $values[$id] );
+				$new_values[$id] = $this->{$field['validate']}( $values[$id], $field );
 			}
 		}
 
@@ -505,33 +514,85 @@ class WPN_Posts_Network_Settings extends WPN_Posts_Fields {
 	 *
 	 * @return int
 	 */
-	public function int( $val ) {
+	public function int( $val, $field = null ) {
 
 		return intval( $val );
 	}
 
 	/**
-	 * Easy way of processing incoming values int integers
+	 * Strips tags and clears up white space.
 	 *
 	 * @param $val
 	 *
 	 * @return string
 	 */
-	public function strip_tags( $val ) {
+	public function strip_tags( $val, $field = null ) {
 
-		return trim(strip_tags( $val ));
+		return trim( strip_tags( $val ) );
 	}
 
 	/**
-	 * Easy way of processing incoming values int integers
+	 * Removes characters from a string.
 	 *
 	 * @param $val
 	 *
-	 * @return mixed
+	 * @return string
 	 */
-	public function sql_escape( $val ) {
+	public function query_string( $val, $field = null ) {
 
-		return $val;
+		return preg_replace("/[^A-Za-z0-9\-+,&_.=]/", '', $val);
+	}
+
+	/**
+	 * @param $val
+	 * @param $field
+	 *
+	 * @return string|int Returns first value if it can't find anything.
+	 */
+	public function exists_in_select( $val, $field ) {
+
+		foreach ( $field['options'] as $options ) {
+
+			if ( in_array( $val, $options ) ) {
+
+				return $val;
+			}
+
+		}
+
+		return $field['options'][0]['value'];
+	}
+
+	/**
+	 * @param $values array
+	 * @param $field
+	 *
+	 * @return string|int Returns first value if it can't find anything.
+	 */
+	public function exists_in_multi_select( $values, $field ) {
+
+		if ( $field['options'][0]['name'] == 'Blog List' ) {
+			$field['options'] = $this->get_blog_list( $field['options']['default'] );
+		}
+
+		$new_values = array();
+
+		// Iterate through supplied values
+		foreach ( $values as $value ) {
+
+			// Check if each value exists in options field.
+			foreach ( $field['options'] as $options ) {
+
+				if ( in_array( $value, $options ) ) {
+
+					$new_values[] = $value;
+				}
+
+			}
+
+		}
+
+		return $values;
 	}
 
 }

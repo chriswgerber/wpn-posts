@@ -199,8 +199,8 @@ abstract class WPN_Posts_Fields {
 	public function select( $field ) {
 
 		/** Chose not to use explode() to manage variables being used */
-		$id      = $field['id'];
-		$name    = $field['name'];
+		$id      = $this->get_field_id( $field['id'] );
+		$name    = $this->get_field_name( $field['id'] );
 		$label   = $field['label'];
 		$options = $field['options'];
 		$value   = $this->values[$field['id']];
@@ -255,8 +255,8 @@ abstract class WPN_Posts_Fields {
 	public function select_multiple( $field ) {
 
 		/** Chose not to use explode() to manage variables being used */
-		$id      = $field['id'];
-		$name    = $field['name'];
+		$id      = $this->get_field_id( $field['id'] );
+		$name    = $this->get_field_name( $field['id'] );
 		$label   = $field['label'];
 		$options = $field['options'];
 		$value   = $this->values[$field['id']];

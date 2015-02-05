@@ -7,6 +7,11 @@
 
 class WPN_Network_Widget extends WP_Widget {
 
+	/**
+	 * Instance of data
+	 *
+	 * @var array
+	 */
 	public $instance;
 
 	/**
@@ -21,7 +26,6 @@ class WPN_Network_Widget extends WP_Widget {
 	 * @var WPN_Posts_Network_Settings
 	 */
 	public $settings;
-
 
 	/**
 	 * I know the classes should be injected, but WordPress won't accept it so
@@ -46,7 +50,7 @@ class WPN_Network_Widget extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function widget($args, $instance) {
-		// TODO Feed Settings into Data (Posts) object
+
 		echo $args['before_widget'];
 		echo $args['before_title'];
 		echo 'A widget will be displayed here.';
@@ -57,7 +61,7 @@ class WPN_Network_Widget extends WP_Widget {
 	}
 
 	/**
-	 *
+	 * Form
 	 *
 	 * @param array $instance
 	 *
@@ -73,11 +77,10 @@ class WPN_Network_Widget extends WP_Widget {
 
 		// Form
 		$this->settings->render_form();
-		var_dump($instance);
 	}
 
 	/**
-	 * TODO Create Update and Validation Functions
+	 * Update
 	 *
 	 * @param array $new_instance
 	 * @param array $old_instance

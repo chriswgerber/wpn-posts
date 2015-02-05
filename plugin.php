@@ -8,6 +8,13 @@ Author: Chris W. Gerber
 Author URI: http://www.chriswgerber.com/
  */
 
+/** Define error logging */
+if ( !defined('WPN_POSTS_ERRORS') ) {
+	define( 'WPN_DISPLAY_ERRORS', TRUE );
+}
+
+/** Main file */
 include( 'class.wpn_posts.php' );
 
+// Wee
 new WPN_Posts;

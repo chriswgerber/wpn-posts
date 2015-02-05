@@ -5,22 +5,32 @@
  * Handles the administration of the plugin.
  */
 
-define( 'WPN_DISPLAY_ERRORS', TRUE );
-
 class WPN_Posts {
 
+	/**
+	 * @var string $plugin_id
+	 *
+	 * ID for plugin
+	 */
 	public $plugin_id = 'wpn_posts';
 
+	/**
+	 * @var string $plugin_name
+	 *
+	 * Front-End display of plugin name
+	 */
 	public $plugin_name = 'Network Posts';
 
+	/**
+	 * @var string $description
+	 *
+	 * Description of functionality
+	 */
 	public $description = 'Create layouts for posts from a WordPress network.';
 
-	public $defaults = array();
-
-	public $fields = array();
-
+	/** Get it started */
 	public function __construct( ) {
-		// Files that need to be included. No Namespaces to keep with PHP 5.2.4
+	// Files that need to be included. No Namespaces to keep with PHP 5.2.4
 		$this->file_includes();
 
 		add_action( 'widgets_init', array($this, 'register_widgets') );
@@ -42,8 +52,7 @@ class WPN_Posts {
 	public function register_widgets() {
 		// Names of Widgets
 		$widgets = array(
-			'wpn_network_widget',
-
+			'wpn_network_widget'
 		);
 
 		foreach ( $widgets as $widget ) {
